@@ -9,7 +9,9 @@ import {
 import TabBarIcon from '../components/TabBarIcon';
 
 
-import { MapView, Location, Permissions } from 'expo';
+import * as Permissions from 'expo-permissions';
+import * as Location from 'expo-location';
+import MapView from 'react-native-maps';
 
 export default class MapScreen extends React.Component {
 
@@ -20,6 +22,11 @@ export default class MapScreen extends React.Component {
 	};
 
 	componentDidMount() {
+		// axios.get('http://localhost:3000/users/')
+ 
+		fetch('http://localhost:3000/users/')
+		  .then((response) => alert(response));
+
 		this._getLocationAsync();
 		// return fetch('https://facebook.github.io/react-native/movies.json')
 		//   .then((response) => response.json())

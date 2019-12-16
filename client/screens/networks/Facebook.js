@@ -7,7 +7,7 @@ import {
     View
 } from 'react-native';
 
-import { Icon } from 'expo';
+import * as Icon from '@expo/vector-icons';
 
 const facebookPostsData = [
     {

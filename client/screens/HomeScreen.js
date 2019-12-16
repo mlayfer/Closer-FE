@@ -30,19 +30,19 @@ export default class HomeScreen extends React.Component {
                     Authorization: 'Bearer ' + access_token,
                 },
             })
-            .then((response) => response.json())
-            .then((responseJson) => {
-                console.log(responseJson);
-                   alert('First name: ' + responseJson.firstName.localized.en_US + '\n' +
-                         'Last name: ' + responseJson.lastName.localized.en_US + '\n' +
-                         'User ID: ' + responseJson.id + '\n' +
-                         'Profile pic: ' + JSON.stringify(responseJson.profilePicture)
-                 );
-                 this.props.navigation.navigate('Map');
-            })
-            .catch((error) => {
-              console.log(error);
-            });
+                .then((response) => response.json())
+                .then((responseJson) => {
+                    console.log(responseJson);
+                    alert('First name: ' + responseJson.firstName.localized.en_US + '\n' +
+                        'Last name: ' + responseJson.lastName.localized.en_US + '\n' +
+                        'User ID: ' + responseJson.id + '\n' +
+                        'Profile pic: ' + JSON.stringify(responseJson.profilePicture)
+                    );
+                    this.props.navigation.navigate('Map');
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
         };
 
         return (
@@ -60,7 +60,7 @@ export default class HomeScreen extends React.Component {
                             <Image source={require('../assets/images/instagram.png')} style={styles.iconImage} />
                         </TouchableOpacity>
                         <TouchableOpacity onPress={signWithNetwork}>
-                            <Image source={require('../assets/images/twitter.png')} style={styles.iconImage}/>
+                            <Image source={require('../assets/images/twitter.png')} style={styles.iconImage} />
                         </TouchableOpacity>
                         <LinkedInModal
                             ref={ref => {
@@ -90,16 +90,16 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fff'
-      },
-        button: {
-          height: 50,
-        },
-      modalContainer: {
+    },
+    button: {
+        height: 50,
+    },
+    modalContainer: {
         flex: 1,
         backgroundColor: '#fff',
         justifyContent: 'center',
         alignItems: 'center',
-      },
+    },
     homeContainer: {
         marginTop: 10
     },
