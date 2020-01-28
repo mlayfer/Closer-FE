@@ -140,50 +140,48 @@ export default class ProfileScreen extends React.Component {
 
 			<View style={styles.container}>
 
-				<View style={styles.headerContainer}>
-					<Image
-						style={styles.profileImage}
-						source={briefInfo.profilePic}>
-					</Image>
-					<View style={styles.headerTextContainer}>
-						<Text style={styles.headerText}>
-							Age: {briefInfo.age}
-						</Text>
-						<Text style={styles.headerText}>
-							From: {briefInfo.from}
-						</Text>
-						<Text style={styles.headerText}>
-							Status: {briefInfo.status}
-						</Text>
-						<Text style={styles.headerText}>
-							Occupation: {briefInfo.occupation}
-						</Text>
-						<Text style={styles.headerText}>
-							Title: {briefInfo.title}
-						</Text>
+				<View style={{height: 150, flexDirection: 'row'}}>
+					<View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+						<Image
+							style={styles.profileImage}
+							source={briefInfo.profilePic}>
+						</Image>
 					</View>
-					<View>
-						<Text style={{ marginRight: 24, fontWeight: 'bold' }}>
-							2,351
-							<Image source={require('../assets/images/stars/stars-02.png')} style={{ height: 18, width: 18, marginBottom: 4 }}></Image>
-						</Text>
-						<Text>
-						</Text>
-						<Text>
-						</Text>
-						<Text>
-						</Text>
-						<Text>
-						</Text>
+					<View style={{flex: 2, marginTop: 10}}>
+						<View style={{flexDirection: 'row'}}>
+							<View style={{flex: 3}}>
+								<Text>
+									Age: {briefInfo.age}
+								</Text>
+								<Text>
+									From: {briefInfo.from}
+								</Text>
+								<Text>
+									Status: {briefInfo.status}
+								</Text>
+								<Text>
+									Occupation: {briefInfo.occupation}
+								</Text>
+								<Text>
+									Title: {briefInfo.title}
+								</Text>
+							</View>
+							<View style={{flex: 2, flexDirection: 'column', alignItems: 'flex-end', justifyContent: 'flex-start', marginRight: 5}}>
+								<View style={{flexDirection: 'row'}}>
+									<Text style={{ fontWeight: 'bold' }}>2,351</Text>
+									<Image source={require('../assets/images/stars/stars-02.png')} style={{ height: 18, width: 18 }}></Image>
+								</View>
+								<View>
+									<Button
+										buttonStyle={{height: 30, fontSize: 8, fontWeight: 'normal', marginTop: 5}}
+										title="Reach out"
+										type="solid"
+									/>
+								</View>
+							</View>
+						</View>
 					</View>
 				</View>
-				<View>
-					<Button
-						title="Send message"
-						type="outline"
-					/>
-				</View>
-
 
 				<TabView
 					swipeEnabled={(this.state.index == 3) ? false : true}
@@ -237,29 +235,10 @@ const styles = StyleSheet.create({
 		flex: 1,
 		backgroundColor: '#fff',
 	},
-	headerContainer: {
-		height: 130,
-		flexDirection: 'row',
-		alignItems: 'center',
-		marginTop: 8,
-		marginBottom: 8
-	},
 	profileImage: {
-		height: 100,
-		width: 100,
-		borderRadius: 50,
-		marginStart: 20,
-		marginEnd: 20
-	},
-	headerTextContainer: {
-		flex: 1,
-		margin: 5,
-	},
-	headerText: {
-		flex: 1
-	},
-	scene: {
-		flex: 0.9,
+		height: 120,
+		width: 120,
+		borderRadius: 60
 	},
 	tabImage: {
 		height: 50,
