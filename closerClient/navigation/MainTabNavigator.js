@@ -3,17 +3,11 @@ import { Image, Platform } from 'react-native';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { createStackNavigator } from 'react-navigation-stack';
 
-
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import MapScreen from '../screens/MapScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import ProfileScreen from '../screens/ProfileScreen';
-import PersonScreen from '../screens/PersonScreen';
-
-const PersonStack = createStackNavigator({
-	Person: PersonScreen,
-});
 
 const HomeStack = createStackNavigator({
 	Home: HomeScreen,
@@ -69,7 +63,7 @@ ProfileStack.navigationOptions = {
 	tabBarLabel: 'Profile',
 	tabBarIcon: ({ focused }) => (
 		<Image
-			source={require('../assets/images/maayan.jpg')}
+			source={require('../assets/images/mocks/profilePics/maayan.jpg')}
 			style={{ height: 22, width: 22, borderRadius: 50 }}
 		/>
 	),

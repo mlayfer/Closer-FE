@@ -1,7 +1,11 @@
 import React from 'react';
 import Masonry from 'react-native-masonry';
 import {
-	View
+    Text,
+    View,
+    Button,
+    ScrollView,
+    Alert
 } from 'react-native';
 
 const pinterestPostsData = [
@@ -28,11 +32,23 @@ const pinterestPostsData = [
 export default class Pinterest extends React.Component {
     render() {
         return (
-            <View></View>
             // <Masonry
             //     sorted // optional - Default: false
             //     columns={2} // optional - Default: 2
             //     bricks={pinterestPostsData} />
+            <View>
+                <ScrollView>
+                    <Text>I'm pinterest</Text>
+                </ScrollView>
+                <View style={{position: 'absolute',width:"100%", bottom:0, backgroundColor: 'white', padding: 6}}>
+                    <Button
+                        title="Add as friend on Pinterest"
+                        color="#ff4d79"
+                        style={{alignSelf: 'stretch',width:"100%",height: 80}}
+                        onPress={() => Alert.alert('Successfully sent a friend request!')}
+                    />
+                </View>
+            </View>
         );
     }
 }

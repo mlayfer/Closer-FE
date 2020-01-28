@@ -2,13 +2,17 @@ import React from 'react';
 import {
     Image,
     Text,
-    View
+    View,
+    Button,
+    ScrollView,
+    Alert
 } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
+
+const name = 'maayan';
 
 const linkedInExperienceData = [
     {
-        imageSrc: 'https://media.licdn.com/dms/image/C510BAQFhdRoC3VVvtQ/company-logo_400_400/0?e=1568246400&v=beta&t=yNJuQXiGwTiszOKkyTLn6Tp-FGU7Um3B-m8s42J88l0',
+        imageSrc: require('../../assets/images/mocks/social/linkedin/'+name+'/qognify.png'),
         position: 'Frontend Developer',
         company: 'Qognify',
         startDate: 'Feb 2019',
@@ -17,7 +21,7 @@ const linkedInExperienceData = [
         location: 'Raanana'
     },
     {
-        imageSrc: 'https://media.licdn.com/dms/image/C4D0BAQHXGxuLfDlrnw/company-logo_400_400/0?e=1568246400&v=beta&t=Qy8EWvWmR5dgIiKtjMUW6-VK6V2LoeVSf_VLW5VaU_w',
+        imageSrc: require('../../assets/images/mocks/social/linkedin/'+name+'/ebay.png'),
         position: 'Frontend Developer',
         company: 'eBay',
         startDate: 'Feb 2019',
@@ -26,7 +30,7 @@ const linkedInExperienceData = [
         location: 'Natanya'
     },
     {
-        imageSrc: 'https://media.licdn.com/dms/image/C4D0BAQHT3VaXTZuxiQ/company-logo_400_400/0?e=1568246400&v=beta&t=UK9ww9LWY7cY4DJIWpiF8xSGyYs8ueHm-iXKCZOlTAI',
+        imageSrc: require('../../assets/images/mocks/social/linkedin/'+name+'/hp.png'),
         position: 'Mobile Developer',
         company: 'HP',
         startDate: 'Feb 2019',
@@ -35,7 +39,7 @@ const linkedInExperienceData = [
         location: 'Haifa'
     },
     {
-        imageSrc: 'https://media.licdn.com/dms/image/C560BAQEclbXZ26a0mQ/company-logo_400_400/0?e=1568246400&v=beta&t=L1FO_rHoyxsSCvVaAWLXX0_cnJUzjU8I58wNE3tOAfA',
+        imageSrc: require('../../assets/images/mocks/social/linkedin/'+name+'/clicktale.png'),
         position: 'QA',
         company: 'ClickTale',
         startDate: 'Feb 2019',
@@ -44,7 +48,7 @@ const linkedInExperienceData = [
         location: 'Ramat-Gan'
     },
     {
-        imageSrc: 'https://media.licdn.com/dms/image/C4E0BAQF-hKjHQHNBQg/company-logo_400_400/0?e=1568246400&v=beta&t=c5XAEgUu_-Xui1HBY2wViQ4tsATiIVxsOXRWysKlZ1k',
+        imageSrc: require('../../assets/images/mocks/social/linkedin/'+name+'/ibm.png'),
         position: 'Control room activator',
         company: 'IBM',
         startDate: 'Oct 2011',
@@ -55,28 +59,28 @@ const linkedInExperienceData = [
 ];
 const linkedInEducationData = [
     {
-        imageSrc: 'https://media.licdn.com/dms/image/C560BAQHx2YcqXFxglQ/company-logo_400_400/0?e=1568246400&v=beta&t=PX44MYQcHaayntNevx9eO35fXHWYac__q67QJd3BCqU',
+        imageSrc: require('../../assets/images/mocks/social/linkedin/'+name+'/openuni.png'),
         Institue: 'The Open University',
         title: 'M.BA Buisness administration',
         startDate: '1018',
         endDate: '2022'
     },
     {
-        imageSrc: 'https://media.licdn.com/dms/image/C4E0BAQE8ABBsYjrAiA/company-logo_400_400/0?e=1568246400&v=beta&t=kwdf9kbIGk9cz_7negYWaKPJGUFjalDEVmEtX5FEYPw',
+        imageSrc: require('../../assets/images/mocks/social/linkedin/'+name+'/haifauni.jpg'),
         Institue: 'University of Haifa',
         title: 'B.Sc Computer Science',
         startDate: '2011',
         endDate: '2015'
     },
     {
-        imageSrc: 'https://media.licdn.com/dms/image/C4E0BAQE8ABBsYjrAiA/company-logo_400_400/0?e=1568246400&v=beta&t=kwdf9kbIGk9cz_7negYWaKPJGUFjalDEVmEtX5FEYPw',
+        imageSrc: require('../../assets/images/mocks/social/linkedin/'+name+'/haifauni.jpg'),
         Institue: 'University of Haifa',
         title: 'B.Sc Information Systems',
         startDate: '2011',
         endDate: '2015'
     },
     {
-        imageSrc: 'https://media.licdn.com/dms/image/C4D0BAQG12formuFdJg/company-logo_400_400/0?e=1568246400&v=beta&t=FsO1AEpDI_o0m5TxDBrxVocnPteMhS0pUsyO-FIINfk',
+        imageSrc: require('../../assets/images/mocks/social/linkedin/'+name+'/technion.jpg'),
         Institue: 'Technion',
         title: 'Pre-Academic',
         startDate: '2000',
@@ -90,7 +94,7 @@ export default class LinkedIn extends React.Component {
             <View key={post.company}>
                 <View style={{ flexDirection: 'row' }}>
                     <Image
-                        source={{ uri: post.imageSrc }}
+                        source={post.imageSrc}
                         style={{ height: 40, width: 40, marginTop: 6, marginRight: 10, marginLeft: 10 }}
                     />
                     <View style={{ flex: 1 }}>
@@ -114,7 +118,7 @@ export default class LinkedIn extends React.Component {
             <View key={post.title}>
                 <View style={{ flexDirection: 'row' }}>
                     <Image
-                        source={{ uri: post.imageSrc }}
+                        source={post.imageSrc}
                         style={{ height: 40, width: 40, marginTop: 6, marginRight: 10, marginLeft: 10 }}
                     />
                     <View style={{ flex: 1 }}>
@@ -134,12 +138,22 @@ export default class LinkedIn extends React.Component {
             </View>
         );
         return (
-            <ScrollView>
-                <Text style={{ marginTop: 15, marginBottom: 15, marginLeft: 10, fontSize: 16 }}>Experience</Text>
-                {linkedInJobsPosts}
-                <Text style={{ marginTop: 15, marginBottom: 15, marginLeft: 10, fontSize: 16 }}>Education</Text>
-                {linkedInEducationPosts}
-            </ScrollView>
+            <View>
+                <ScrollView>
+                    <Text style={{ marginTop: 15, marginBottom: 15, marginLeft: 10, fontSize: 16 }}>Experience</Text>
+                    {linkedInJobsPosts}
+                    <Text style={{ marginTop: 15, marginBottom: 15, marginLeft: 10, fontSize: 16 }}>Education</Text>
+                    {linkedInEducationPosts}
+                </ScrollView>
+                <View style={{position: 'absolute',width:"100%", bottom:0, backgroundColor: 'white', padding: 6}}>
+                    <Button
+                        title="Make a connection in LinkedIn"
+                        color="#ff4d79"
+                        style={{alignSelf: 'stretch',width:"100%",height: 80}}
+                        onPress={() => Alert.alert('Successfully sent a friend request!')}
+                    />
+                </View>
+            </View>
         );
     }
 }

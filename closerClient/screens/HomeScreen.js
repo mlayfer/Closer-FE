@@ -10,7 +10,6 @@ import {
     Button,
 } from 'react-native';
 import LinkedInModal from 'react-native-linkedin';
-import { LoginButton, AccessToken } from 'react-native-fbsdk';
 
 export default class HomeScreen extends React.Component {
     static navigationOptions = {
@@ -20,6 +19,7 @@ export default class HomeScreen extends React.Component {
     render() {
 
         const signWithFacebook = () => {
+            console.log(this.props);
             this.props.navigation.navigate('Map');
         };
 
@@ -70,32 +70,14 @@ export default class HomeScreen extends React.Component {
                         <Text style={styles.subHeader}>Choose the first network you connect with</Text>
                     </View>
                     <View style={styles.iconsContainer}>
-                        <LoginButton
-                            onLoginFinished={
-                                (error, result) => {
-                                if (error) {
-                                    console.log("login has error: " + result.error);
-                                } else if (result.isCancelled) {
-                                    console.log("login is cancelled.");
-                                } else {
-                                    AccessToken.getCurrentAccessToken().then(
-                                    (data) => {
-                                        console.log(data.accessToken.toString())
-                                    }
-                                    )
-                                }
-                                }
-                            }
-                            onLogoutFinished={() => console.log("logout.")}
-                        />
                         <TouchableOpacity onPress={signWithFacebook}>
-                            <Image source={require('../assets/images/facebook.png')} style={styles.iconImage} />
+                            <Image source={require('../assets/images/icons/facebook.png')} style={styles.iconImage} />
                         </TouchableOpacity>
                         <TouchableOpacity onPress={signWithInstagram}>
-                            <Image source={require('../assets/images/instagram.png')} style={styles.iconImage} />
+                            <Image source={require('../assets/images/icons/instagram.png')} style={styles.iconImage} />
                         </TouchableOpacity>
                         <TouchableOpacity onPress={signWithTwitter}>
-                            <Image source={require('../assets/images/twitter.png')} style={styles.iconImage} />
+                            <Image source={require('../assets/images/icons/twitter.png')} style={styles.iconImage} />
                         </TouchableOpacity>
                         <LinkedInModal
                             ref={ref => {
@@ -110,10 +92,10 @@ export default class HomeScreen extends React.Component {
                             onError={error => alert(JSON.stringify(error))}
                         />
                         <TouchableOpacity onPress={() => this.modal.open()}>
-                            <Image source={require('../assets/images/linkedin.png')} style={styles.iconImage} />
+                            <Image source={require('../assets/images/icons/linkedin.png')} style={styles.iconImage} />
                         </TouchableOpacity>
                         <TouchableOpacity onPress={signWithSnapchat}>
-                            <Image source={require('../assets/images/snapchat.png')} style={styles.iconImage} />
+                            <Image source={require('../assets/images/icons/snapchat.png')} style={styles.iconImage} />
                         </TouchableOpacity>
                     </View>
                 </ScrollView>
